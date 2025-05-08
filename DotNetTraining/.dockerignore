@@ -1,0 +1,12 @@
+/.vs/DotNetTraining/FileContentIndex
+/.vs/DotNetTraining/config
+/.vs/DotNetTraining/v17
+DotNetTraining/bin/
+DotNetTraining/obj/
+
+/.vs
+DotNetTraining/wwwroot
+DotNetTraining/appsettings.Development.json
+DotNetTraining/DotNetTraining.csproj.user
+DotNetTraining/.config
+DotNetTraining/Properties
