@@ -396,3 +396,16 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/.vs/BPMaster/FileContentIndex
+/.vs/BPMaster/config
+/.vs/BPMaster/v17
+/BPMaster/bin/Debug/net8.0
+/BPMaster/obj
+/BPMaster/bin
+/.vs
+/BPMaster/wwwroot
+/BPMaster/appsettings.Development.json
+/BPMaster/BPMaster.csproj.user
+/BPMaster/.config
+/BPMaster/Properties
+
