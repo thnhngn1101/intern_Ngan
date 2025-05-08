@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  app:
+    container_name: ENVIRONMENT-NAME-PROJECT-NAME
+    image: IMAGE-NAME:IMAGE-TAG
+    volumes:
+      - MOUNT-DATA-FOLDER/PROJECT-NAME:/data
+    ports:
+      - P-MAPPING:8080
+    env_file:
+      - .env
+    restart: unless-stopped
+    pull_policy: always
+

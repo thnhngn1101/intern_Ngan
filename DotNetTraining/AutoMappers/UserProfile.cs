@@ -10,8 +10,10 @@ namespace DotNetTraining.AutoMappers
         public UserProfile()
         {
             CreateMap<UserDto, User>(); 
+
             CreateMap<User, UserModel>();
             CreateMap<User, UserDto>(); 
+
 
         }
     }

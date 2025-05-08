@@ -12,3 +12,4 @@ CREATE TABLE "users"
     CONSTRAINT "users_pkey" PRIMARY KEY ("Id")
 )
 
+ALTER TABLE users ADD Role NVARCHAR(MAX) NULL;

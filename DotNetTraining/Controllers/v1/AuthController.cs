@@ -41,17 +41,23 @@ namespace DotNetTraining.Controllers.v1
             if (result == PasswordVerificationResult.Failed)
                 return Unauthorized(new { message = "Sai mật khẩu" });
 
-            var key = Encoding.ASCII.GetBytes(_config["Jwt:Key"]);
+            // 🔐 Lấy cấu hình từ JwtTokenSetting
+            var jwtSettings = _config.GetSection("JwtTokenSetting");
+            var key = Encoding.UTF8.GetBytes(jwtSettings["SymmetricSecurityKey"]!);
+            var issuer = jwtSettings["Issuer"];
+            var audience = jwtSettings["Audience"];
+
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                  
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.Role ?? "user")
-                }),
+            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.Role, user.Role ?? "user")
+        }),
                 Expires = DateTime.UtcNow.AddHours(1),
+                Issuer = issuer,
+                Audience = audience,
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature)
@@ -68,5 +74,7 @@ namespace DotNetTraining.Controllers.v1
                 user = userDto
             });
         }
+
     }
 }
+

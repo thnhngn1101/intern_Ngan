@@ -10,5 +10,6 @@ namespace DotNetTraining.Domains.Dtos
         [EmailAddress(ErrorMessage = "Email không hợp lệ")]
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; } = "user";
     }
 }
